@@ -1,0 +1,141 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+node_types:
+  http://opentosca.org/nodetypes.DockerEngine_w1-wip1:
+    metadata:
+      targetNamespace: "http://opentosca.org/nodetypes"
+      abstract: "false"
+      final: "false"
+    properties:
+      DockerEngineURL:
+        type: string
+        required: false
+      DockerEngineCertificate:
+        type: string
+        required: false
+    capabilities:
+      host:
+        occurrences: [ 1, UNBOUNDED ]
+        valid_source_types: [ http://opentosca.org/nodetypes.DockerEngine_w1-wip1 ]
+        type: tosca.capabilities.Container
+    interfaces:
+      InterfaceDockerEngine:
+        type: opentosca.interfaces.node.lifecycle.InterfaceDockerEngine
+        operations:
+          removeContainer:
+            description: Delete operation for docker containers hosted on this docker engine.
+            inputs:
+              DockerEngineURL:
+                type: string
+                required: true
+              DockerEngineCertificate:
+                type: string
+                required: true
+              ContainerID:
+                type: string
+                required: true
+            outputs:
+              Result:
+                type: string
+                required: false
+            implementation:
+              primary: InterfaceDockerEngineImplementation
+              timeout: 0
+          startContainer:
+            description: Create operation for docker containers hosted on this docker engine.
+            inputs:
+              ContainerPorts:
+                type: string
+                required: true
+              DockerEngineURL:
+                type: string
+                required: true
+              VMPrivateKey:
+                type: string
+                required: true
+              RemoteVolumeData:
+                type: string
+                required: true
+              Devices:
+                type: string
+                required: true
+              DockerEngineCertificate:
+                type: string
+                required: true
+              HostVolumeData:
+                type: string
+                required: true
+              PrivilegedMode:
+                type: string
+                required: true
+              ContainerMountPath:
+                type: string
+                required: true
+              VMIP:
+                type: string
+                required: true
+              ContainerImage:
+                type: string
+                required: true
+              Links:
+                type: string
+                required: true
+              ContainerEnv:
+                type: string
+                required: true
+            outputs:
+              ContainerPorts:
+                type: string
+                required: true
+              ContainerIP:
+                type: string
+                required: true
+              ContainerID:
+                type: string
+                required: true
+            implementation:
+              primary: InterfaceDockerEngineImplementation
+              timeout: 0
+      Standard:
+        type: tosca.interfaces.node.lifecycle.Standard
+        operations:
+          create:
+            description: The standard create operation
+            implementation:
+              primary: createArtifact
+              timeout: 0
+          configure:
+            description: The standard configure operation
+            inputs:
+              VMIP:
+                type: string
+                required: true
+            outputs:
+              DockerEngineURL:
+                type: string
+                required: true
+            implementation:
+              primary: configureArtifact
+              timeout: 0
+          delete:
+            description: The standard delete operation
+            implementation:
+              primary: uninstallDockerEngine
+              timeout: 0
+    artifacts:
+      createArtifact:
+        type: http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.ScriptArtifact_w1-wip1
+        description: installation script for a dockerengine
+        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fnodetypes/DockerEngine_w1-wip1/files/createArtifact/install.sh
+      InterfaceDockerEngineImplementation:
+        type: http://opentosca.org/artifacttemplates.WAR-Java17_w1-wip1
+        description: WAR WebService implementing the InterfaceDockerEngine interface to start and stop docker containers
+        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fnodetypes/DockerEngine_w1-wip1/files/InterfaceDockerEngineImplementation/org_opentosca_artifactTemplates_DockerEngine__InterfaceDockerEngine.war
+      configureArtifact:
+        type: http://opentosca.org/artifacttypes.WAR-Java8_w1-wip1
+        description: Configure WebService for DockerEngine
+        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fnodetypes/DockerEngine_w1-wip1/files/configureArtifact/org_opentosca_NodeTypes_DockerEngine__com_example_www_interfaces_lifecycle.war
+      uninstallDockerEngine:
+        type: http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.ScriptArtifact_w1-wip1
+        description: Uninstall script for a dockerengine
+        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fnodetypes/DockerEngine_w1-wip1/files/uninstallDockerEngine/uninstall.sh

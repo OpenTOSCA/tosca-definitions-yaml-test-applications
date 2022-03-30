@@ -1,0 +1,89 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+node_types:
+  http://opentosca.org/nodetypes.DockerContainer_w1-wip1:
+    metadata:
+      targetNamespace: "http://opentosca.org/nodetypes"
+      abstract: "false"
+      final: "false"
+    properties:
+      HostMountFiles:
+        type: string
+        required: false
+      ContainerIP:
+        type: string
+        required: false
+      PrivilegedMode:
+        type: string
+        required: false
+      ContainerID:
+        type: string
+        required: false
+      ContainerMountPath:
+        type: string
+        required: false
+      Port:
+        type: string
+        required: false
+      ContainerPort:
+        type: string
+        required: false
+      ImageID:
+        type: string
+        required: false
+    interfaces:
+      ContainerManagementInterface:
+        type: opentosca.interfaces.node.lifecycle.ContainerManagementInterface
+        operations:
+          transferFile:
+            description: Operation to upload a file inside the docker container.
+            inputs:
+              DockerEngineURL:
+                type: string
+                required: true
+              DockerEngineCertificate:
+                type: string
+                required: true
+              ContainerID:
+                type: string
+                required: true
+              TargetAbsolutePath:
+                type: string
+                required: true
+              SourceURLorLocalPath:
+                type: string
+                required: true
+            outputs:
+              TransferResult:
+                type: string
+                required: true
+            implementation:
+              primary: ContainerManagementInterface
+              timeout: 0
+          runScript:
+            description: Operation to execute a script inside the docker container.
+            inputs:
+              DockerEngineURL:
+                type: string
+                required: true
+              DockerEngineCertificate:
+                type: string
+                required: true
+              Script:
+                type: string
+                required: true
+              ContainerID:
+                type: string
+                required: true
+            outputs:
+              ScriptResult:
+                type: string
+                required: true
+            implementation:
+              primary: ContainerManagementInterface
+              timeout: 0
+    artifacts:
+      ContainerManagementInterface:
+        type: http://opentosca.org/artifacttemplates.WAR-Java17_w1-wip1
+        description: Implementation for runScript and transferFile of a DockerContainer
+        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fnodetypes/DockerContainer_w1-wip1/files/ContainerManagementInterface/ORG_OP~1.WAR

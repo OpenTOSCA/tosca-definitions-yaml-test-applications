@@ -1,0 +1,46 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+node_types:
+  http://opentosca.org/example/applications/nodetypes.MyTinyToDoDockerContainer_w1-wip1:
+    derived_from: http://opentosca.org/nodetypes.DockerContainer_w1-wip1
+    metadata:
+      targetNamespace: "http://opentosca.org/example/applications/nodetypes"
+      abstract: "false"
+      final: "false"
+    properties:
+      Port:
+        type: string
+        required: false
+      ContainerPort:
+        type: string
+        required: false
+    interfaces:
+      Connections:
+        type: opentosca.interfaces.relationship.lifecycle.Connections
+        operations:
+          connectTo:
+            description: Operation to add an endpoint to this node.
+            inputs:
+              DBPassword:
+                type: string
+                required: true
+              VMIP:
+                type: string
+                required: true
+              DBName:
+                type: string
+                required: true
+              DBUser:
+                type: string
+                required: true
+              DBMSPort:
+                type: string
+                required: true
+            implementation:
+              primary: ConnecToImplementation
+              timeout: 0
+    artifacts:
+      ConnecToImplementation:
+        type: http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.ScriptArtifact_w1-wip1
+        description: Implements the connectTo operation of the MyTinyToDo docker container
+        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fexample%2Fapplications%2Fnodetypes/MyTinyToDoDockerContainer_w1-wip1/files/ConnecToImplementation/connectto_mysql.sh

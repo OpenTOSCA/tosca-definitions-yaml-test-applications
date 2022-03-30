@@ -1,0 +1,7 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+interface_types:
+  opentosca.interfaces.node.lifecycle.ContainerManagementInterface:
+    derived_from: tosca.interfaces.Root
+    metadata:
+      targetNamespace: "opentosca.interfaces.node.lifecycle"

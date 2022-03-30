@@ -1,0 +1,8 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+artifact_types:
+  http://opentosca.org/artifacttemplates.WAR-Java17_w1-wip1:
+    metadata:
+      targetNamespace: "http://opentosca.org/artifacttemplates"
+      abstract: "false"
+      final: "false"
