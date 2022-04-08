@@ -7,15 +7,20 @@ topology_template:
     DockerEngine_w1-wip1_0:
       type: http://opentosca.org/nodetypes.DockerEngine_w1-wip1
       metadata:
-        x: "949"
-        y: "519"
+        x: "944"
+        y: "652"
         displayName: "DockerEngine_w1-wip1"
+      properties:
+        DockerEngineURL: "get_input: DockerEngineURL"
+        State: "Running"
     MyTinyToDoDockerContainer_w1-wip1_0:
       type: http://opentosca.org/example/applications/nodetypes.MyTinyToDoDockerContainer_w1-wip1
       metadata:
-        x: "898"
-        y: "308"
+        x: "976"
+        y: "27"
         displayName: "MyTinyToDoDockerContainer_w1-wip1"
+      properties:
+        Port: "get_input: ApplicationPort"
       requirements:
         - host:
             node: DockerEngine_w1-wip1_0
