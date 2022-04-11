@@ -12,6 +12,7 @@ topology_template:
         displayName: "DockerEngine_w1-wip1"
       properties:
         DockerEngineURL: "get_input: DockerEngineURL"
+        DockerEngineCertificate: null
         State: "Running"
     MyTinyToDoDockerContainer_w1-wip1_0:
       type: http://opentosca.org/example/applications/nodetypes.MyTinyToDoDockerContainer_w1-wip1
@@ -21,6 +22,12 @@ topology_template:
         displayName: "MyTinyToDoDockerContainer_w1-wip1"
       properties:
         Port: "get_input: ApplicationPort"
+        HostMountFiles: null
+        ContainerIP: null
+        ContainerID: null
+        ContainerMountPath: null
+        ContainerPort: "80"
+        ImageID: null
       requirements:
         - host:
             node: DockerEngine_w1-wip1_0
