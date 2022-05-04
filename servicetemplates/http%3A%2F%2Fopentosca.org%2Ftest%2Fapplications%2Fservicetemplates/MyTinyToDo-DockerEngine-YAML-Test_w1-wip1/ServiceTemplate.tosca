@@ -36,7 +36,7 @@ topology_template:
       artifacts:
         MyTinyToDoDockerContainerSources:
           type: http://opentosca.org/artifacttypes.DockerContainerArtifact
-          file: servicetemplates/http%3A%2F%2Fopentosca.org%2Ftest%2Fapplications%2Fservicetemplates/MyTinyToDo-DockerEngine-YAML-Test_w1-wip1/files/tinytodo.zip
+          file: nodetypes/http%3A%2F%2Fopentosca.org%2Fexample%2Fapplications%2Fnodetypes/MyTinyToDoDockerContainer_w1-wip1/files/MyTinyToDoDockerContainer_w1-wip/MyTinyToDoDockerContainerSources/tinytodo.zip
   relationship_templates:
     con_HostedOn_0:
       type: tosca.relationships.HostedOn
