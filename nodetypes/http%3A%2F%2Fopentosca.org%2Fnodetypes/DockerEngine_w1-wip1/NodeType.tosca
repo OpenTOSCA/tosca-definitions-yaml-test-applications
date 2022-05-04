@@ -126,16 +126,16 @@ node_types:
       createArtifact:
         type: http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.ScriptArtifact_w1-wip1
         description: installation script for a dockerengine
-        file: files/createArtifact/install.sh
+        file: install.sh
       InterfaceDockerEngineImplementation:
         type: http://opentosca.org/artifacttemplates.WAR-Java17_w1-wip1
         description: WAR WebService implementing the InterfaceDockerEngine interface to start and stop docker containers
-        file: files/InterfaceDockerEngineImplementation/org_opentosca_artifactTemplates_DockerEngine__InterfaceDockerEngine.war
+        file: org_opentosca_artifactTemplates_DockerEngine__InterfaceDockerEngine.war
       configureArtifact:
         type: http://opentosca.org/artifacttypes.WAR-Java8_w1-wip1
         description: Configure WebService for DockerEngine
-        file: files/configureArtifact/org_opentosca_NodeTypes_DockerEngine__com_example_www_interfaces_lifecycle.war
+        file: org_opentosca_NodeTypes_DockerEngine__com_example_www_interfaces_lifecycle.war
       uninstallDockerEngine:
         type: http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.ScriptArtifact_w1-wip1
         description: Uninstall script for a dockerengine
-        file: files/uninstallDockerEngine/uninstall.sh
+        file: uninstall.sh
