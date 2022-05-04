@@ -86,4 +86,4 @@ node_types:
       ContainerManagementInterface:
         type: http://opentosca.org/artifacttemplates.WAR-Java17_w1-wip1
         description: Implementation for runScript and transferFile of a DockerContainer
-        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fnodetypes/DockerContainer_w1-wip1/files/ContainerManagementInterface/ORG_OP~1.WAR
+        file: files/ContainerManagementInterface/ORG_OP~1.WAR

@@ -33,6 +33,10 @@ topology_template:
             node: DockerEngine_w1-wip1_0
             relationship: con_HostedOn_0
             capability: host
+      artifacts:
+        MyTinyToDoDockerContainerSources:
+            type: http://opentosca.org/artifacttypes.DockerContainerArtifact
+            file: files/MyTinyToDoDockerContainer_w1-wip/MyTinyToDoDockerContainerSources/tinytodo.zip
   relationship_templates:
     con_HostedOn_0:
       type: tosca.relationships.HostedOn

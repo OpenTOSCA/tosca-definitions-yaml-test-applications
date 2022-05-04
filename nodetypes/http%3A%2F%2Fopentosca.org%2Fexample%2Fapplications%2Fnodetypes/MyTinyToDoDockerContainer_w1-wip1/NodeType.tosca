@@ -40,10 +40,7 @@ node_types:
               primary: ConnecToImplementation
               timeout: 0
     artifacts:
-      MyTinyToDoDockerContainerSources:
-        type: http://opentosca.org/artifacttypes.DockerContainerArtifact
-        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fexample%2Fapplications%2Fnodetypes/MyTinyToDoDockerContainer_w1-wip1/files/MyTinyToDoDockerContainer_w1-wip/MyTinyToDoDockerContainerSources/tinytodo.zip
       ConnecToImplementation:
         type: http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.ScriptArtifact_w1-wip1
         description: Implements the connectTo operation of the MyTinyToDo docker container
-        file: nodetypes/http%3A%2F%2Fopentosca.org%2Fexample%2Fapplications%2Fnodetypes/MyTinyToDoDockerContainer_w1-wip1/files/ConnecToImplementation/connectto_mysql.sh
+        file: files/ConnecToImplementation/connectto_mysql.sh
