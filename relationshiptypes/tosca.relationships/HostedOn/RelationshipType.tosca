@@ -1,7 +1,7 @@
 tosca_definitions_version: tosca_simple_yaml_1_3
 
 relationship_types:
-  tosca.relationships.HostedOn:
+  http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.HostedOn:
     derived_from: tosca.relationships.Root
     metadata:
       targetNamespace: "http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes"

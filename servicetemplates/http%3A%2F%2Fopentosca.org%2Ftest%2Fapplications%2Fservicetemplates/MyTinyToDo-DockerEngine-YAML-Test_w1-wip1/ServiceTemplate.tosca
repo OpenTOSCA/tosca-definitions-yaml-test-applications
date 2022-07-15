@@ -39,4 +39,4 @@ topology_template:
             file: tinytodo.zip
   relationship_templates:
     con_HostedOn_0:
-      type: tosca.relationships.HostedOn
+      type: http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes.HostedOn
