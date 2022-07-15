@@ -4,7 +4,7 @@ relationship_types:
   tosca.relationships.HostedOn:
     derived_from: tosca.relationships.Root
     metadata:
-      targetNamespace: "tosca.relationships"
+      targetNamespace: "http://docs.oasis-open.org/tosca/ns/2011/12/ToscaBaseTypes"
       abstract: "false"
       final: "false"
     valid_target_types: [ tosca.capabilities.Container ]
